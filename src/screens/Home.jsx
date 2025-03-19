@@ -4,9 +4,18 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
 import {screenNames} from '../types';
 import Logo from '../components/Logo';
+import {useEffect} from 'react';
+import {useDispatch} from 'react-redux';
+import {getTopRatedMoviesAction} from '../app/actions/movieAction';
 
 const Home = () => {
   const navigation = useNavigation();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTopRatedMoviesAction());
+  }, []);
 
   return (
     <View style={styles.container}>

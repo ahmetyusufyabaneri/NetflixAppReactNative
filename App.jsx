@@ -1,11 +1,11 @@
-import {View} from 'react-native';
 import Routes from './src/routes/Routes';
+import AppProvider from './src/providers/AppProvider';
 
 const App = () => {
   return (
-    <View style={{flex: 1}}>
+    <AppProvider>
       <Routes />
-    </View>
+    </AppProvider>
   );
 };
 
