@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <SafeAreaView>
-        <View className="flex-row items-center justify-between mt-1 px-4">
+        <View className="flex-row items-center justify-between mt-2 px-4">
           <TouchableOpacity>
             <Icon name="menuunfold" size={28} color={'#fff'} />
           </TouchableOpacity>
