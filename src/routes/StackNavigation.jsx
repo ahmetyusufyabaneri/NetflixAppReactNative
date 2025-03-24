@@ -1,9 +1,9 @@
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {screenNames} from '../types';
-import Home from '../screens/Home';
-import Movie from '../screens/Movie';
-import Person from '../screens/Person';
-import Search from '../screens/Search';
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import {screenNames} from "../types";
+import Home from "../screens/Home";
+import Movie from "../screens/Movie";
+import Person from "../screens/Person";
+import Search from "../screens/Search";
 
 const Stack = createNativeStackNavigator();
 

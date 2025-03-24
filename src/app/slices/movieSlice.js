@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
   trending: [],
@@ -9,12 +9,10 @@ const initialState = {
 };
 
 export const movieSlice = createSlice({
-  name: 'movie',
+  name: "movie",
   initialState,
   reducers: {
-    setTopRatedState: (state, action) => {
-      console.log(action);
-    },
+    setTopRatedState: (state, action) => {},
   },
 });
 

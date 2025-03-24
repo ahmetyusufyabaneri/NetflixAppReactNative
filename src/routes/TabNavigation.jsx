@@ -1,9 +1,9 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {screenNames} from '../types';
-import StackNavigation from './StackNavigation';
-import Favourites from '../screens/Favourites';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import {themes} from '../themes';
+import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
+import {screenNames} from "../types";
+import StackNavigation from "./StackNavigation";
+import Favourites from "../screens/Favourites";
+import Icon from "react-native-vector-icons/FontAwesome";
+import {themes} from "../themes";
 
 const Tab = createBottomTabNavigator();
 
