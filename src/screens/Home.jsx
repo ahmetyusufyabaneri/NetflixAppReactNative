@@ -7,6 +7,7 @@ import Logo from "../components/Logo";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {getTopRatedMoviesAction} from "../app/actions/movieAction";
+import TrendingMovies from "../components/TrendingMovies";
 
 const Home = () => {
   const navigation = useNavigation();
@@ -18,8 +19,6 @@ const Home = () => {
   }, []);
 
   const {topRated} = useSelector(state => state.movie);
-
-  console.log(topRated);
 
   return (
     <View style={styles.container}>
@@ -34,6 +33,7 @@ const Home = () => {
             <Icon name="search1" size={28} color={"#fff"} />
           </TouchableOpacity>
         </View>
+        <TrendingMovies />
       </SafeAreaView>
     </View>
   );
