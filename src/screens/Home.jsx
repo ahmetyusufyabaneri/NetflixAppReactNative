@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/AntDesign";
 import {useNavigation} from "@react-navigation/native";
 import {screenNames} from "../types";
 import Logo from "../components/Logo";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {getTopRatedMoviesAction} from "../app/actions/movieAction";
 
@@ -17,7 +17,9 @@ const Home = () => {
     dispatch(getTopRatedMoviesAction());
   }, []);
 
-  console.log("hello");
+  const {topRated} = useSelector(state => state.movie);
+
+  console.log(topRated);
 
   return (
     <View style={styles.container}>

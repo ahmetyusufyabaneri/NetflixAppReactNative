@@ -1,12 +1,11 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {getTopRatedMovies} from "../../api";
+import {setTopRatedMovies} from "../slices/movieSlice";
 
 export const getTopRatedMoviesAction = createAsyncThunk(
   "movie/getTopRatedMovies",
-  async () => {
+  async (_, {dispatch}) => {
     const response = await getTopRatedMovies();
-    console.log(response);
-
-    return response;
+    dispatch(setTopRatedMovies(response.results));
   },
 );
