@@ -1,4 +1,10 @@
-import {SafeAreaView, StyleSheet, TouchableOpacity, View} from "react-native";
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import {themes} from "../themes";
 import Icon from "react-native-vector-icons/AntDesign";
 import {useNavigation} from "@react-navigation/native";
@@ -8,6 +14,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {getTopRatedMoviesAction} from "../app/actions/movieAction";
 import TrendingMovies from "../components/TrendingMovies";
+import MovieList from "./MovieList";
 
 const Home = () => {
   const navigation = useNavigation();
@@ -33,7 +40,11 @@ const Home = () => {
             <Icon name="search1" size={28} color={"#fff"} />
           </TouchableOpacity>
         </View>
-        <TrendingMovies />
+        <ScrollView>
+          <TrendingMovies />
+          <MovieList title={"Trending"} />
+          <MovieList data={topRated} title={"Top Rated"} />
+        </ScrollView>
       </SafeAreaView>
     </View>
   );
