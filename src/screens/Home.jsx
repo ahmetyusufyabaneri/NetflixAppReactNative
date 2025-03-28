@@ -12,9 +12,12 @@ import {screenNames} from "../types";
 import Logo from "../components/Logo";
 import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
-import {getTopRatedMoviesAction} from "../app/actions/movieAction";
+import {
+  getTopRatedMoviesAction,
+  getUpcomingMoviesAction,
+} from "../app/actions/movieAction";
 import TrendingMovies from "../components/TrendingMovies";
-import MovieList from "./MovieList";
+import MovieList from "../components/MovieList";
 
 const Home = () => {
   const navigation = useNavigation();
@@ -23,6 +26,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getTopRatedMoviesAction());
+    dispatch(getUpcomingMoviesAction());
   }, []);
 
   const {topRated} = useSelector(state => state.movie);

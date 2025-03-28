@@ -1,6 +1,14 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {getTopRatedMovies, getTrendingMovies} from "../../api";
-import {setTopRatedMovies, setTrendingMovies} from "../slices/movieSlice";
+import {
+  getTopRatedMovies,
+  getTrendingMovies,
+  getUpcomingMovies,
+} from "../../api";
+import {
+  setTopRatedMovies,
+  setTrendingMovies,
+  setUpcomingMovies,
+} from "../slices/movieSlice";
 
 export const getTrendingMoviesAction = createAsyncThunk(
   "movie/getTrendingMovies",
@@ -15,5 +23,13 @@ export const getTopRatedMoviesAction = createAsyncThunk(
   async (_, {dispatch}) => {
     const response = await getTopRatedMovies();
     dispatch(setTopRatedMovies(response.results));
+  },
+);
+
+export const getUpcomingMoviesAction = createAsyncThunk(
+  "movie/getUpcomingMovies",
+  async (_, {dispatch}) => {
+    const response = await getUpcomingMovies();
+    dispatch(setUpcomingMovies(response.results));
   },
 );
