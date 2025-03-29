@@ -10,4 +10,4 @@ export const getMovieDetails = id => requests.get(`/movie/${id}`);
 
 export const getMovieCredits = id => requests.get(`/movie/${id}/credits`);
 
-export const getMovieSimilar = id => requests.get(`/movie/${id}/similar`);
+export const getSimilarMovies = id => requests.get(`/movie/${id}/similar`);

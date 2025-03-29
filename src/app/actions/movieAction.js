@@ -2,7 +2,7 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {
   getMovieCredits,
   getMovieDetails,
-  getMovieSimilar,
+  getSimilarMovies,
   getTopRatedMovies,
   getTrendingMovies,
   getUpcomingMovies,
@@ -10,7 +10,7 @@ import {
 import {
   setMovieCredits,
   setMovieDetails,
-  setMovieSimilar,
+  setSimilarMovies,
   setTopRatedMovies,
   setTrendingMovies,
   setUpcomingMovies,
@@ -56,10 +56,10 @@ export const getMovieCreditsAction = createAsyncThunk(
   },
 );
 
-export const getMovieSimilarAction = createAsyncThunk(
-  "movie/getMovieSimilar",
+export const getSimilarMoviesAction = createAsyncThunk(
+  "movie/getSimilarMovies",
   async (id, {dispatch}) => {
-    const response = await getMovieSimilar(id);
-    dispatch(setMovieSimilar(response.results));
+    const response = await getSimilarMovies(id);
+    dispatch(setSimilarMovies(response.results));
   },
 );

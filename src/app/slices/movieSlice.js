@@ -6,7 +6,7 @@ const initialState = {
   topRated: [],
   movieDetails: {},
   movieCredits: {},
-  movieSimilar: {},
+  similarMovies: {},
   isLoading: false,
   isError: false,
 };
@@ -30,8 +30,8 @@ export const movieSlice = createSlice({
     setMovieCredits: (state, action) => {
       state.movieCredits = action.payload;
     },
-    setMovieSimilar: (state, action) => {
-      state.movieSimilar = action.payload;
+    setSimilarMovies: (state, action) => {
+      state.similarMovies = action.payload;
     },
   },
 });
@@ -42,7 +42,7 @@ export const {
   setUpcomingMovies,
   setMovieDetails,
   setMovieCredits,
-  setMovieSimilar,
+  setSimilarMovies,
 } = movieSlice.actions;
 
 export default movieSlice.reducer;

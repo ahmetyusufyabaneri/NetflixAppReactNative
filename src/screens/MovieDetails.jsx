@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {
   getMovieCreditsAction,
   getMovieDetailsAction,
-  getMovieSimilarAction,
+  getSimilarMoviesAction,
 } from "../app/actions/movieAction";
 
 const Movie = () => {
@@ -16,7 +16,7 @@ const Movie = () => {
   useEffect(() => {
     dispatch(getMovieDetailsAction(id));
     dispatch(getMovieCreditsAction(id));
-    dispatch(getMovieSimilarAction(id));
+    dispatch(getSimilarMoviesAction(id));
   }, [id]);
 
   const {movieDetails, movieCredits, movieSimilar} = useSelector(
