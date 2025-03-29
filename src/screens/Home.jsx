@@ -25,11 +25,11 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getTopRatedMoviesAction());
     dispatch(getUpcomingMoviesAction());
+    dispatch(getTopRatedMoviesAction());
   }, []);
 
-  const {topRated} = useSelector(state => state.movie);
+  const {upcoming, topRated} = useSelector(state => state.movie);
 
   return (
     <View style={styles.container}>
@@ -46,7 +46,7 @@ const Home = () => {
         </View>
         <ScrollView>
           <TrendingMovies />
-          <MovieList title={"Trending"} />
+          <MovieList data={upcoming} title={"Upcoming"} />
           <MovieList data={topRated} title={"Top Rated"} />
         </ScrollView>
       </SafeAreaView>

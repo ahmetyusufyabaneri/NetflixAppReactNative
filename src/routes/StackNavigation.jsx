@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 const StackNavigation = () => {
   return (
     <Stack.Navigator
-      initialRouteName={screenNames.Home}
+      initialRouteName={screenNames.Search}
       screenOptions={{
         headerShown: false,
       }}>

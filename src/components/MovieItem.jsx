@@ -19,10 +19,10 @@ const MovieItem = ({movie}) => {
           height={height * 0.22}
           className="rounded-xl"
         />
-        <Text className="text-white ml-1">
-          {movie.title.length > 15
-            ? movie.title.slice(0, 15) + "..."
-            : movie.title}
+        <Text className="text-white text-center ml-1">
+          {movie.original_title?.length > 15
+            ? movie.original_title.slice(0, 15) + "..."
+            : movie.original_title}
         </Text>
       </View>
     </TouchableOpacity>
