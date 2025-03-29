@@ -12,7 +12,7 @@ const TrendingMovies = () => {
 
   return (
     <View>
-      <Text>TrendingMovies</Text>
+      <Text>TrendingMovies1</Text>
     </View>
   );
 };
