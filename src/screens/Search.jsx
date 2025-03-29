@@ -1,4 +1,5 @@
 import {
+  Image,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -15,14 +16,14 @@ import {screenNames} from "../types";
 const Search = () => {
   const navigation = useNavigation();
 
-  const [searchText, setSearchText] = useState();
-  console.log(searchText);
+  const [searchText, setSearchText] = useState("");
 
   return (
     <View style={styles.container}>
       <SafeAreaView className="mx-4">
         <View className="flex-row justify-between items-center border border-neutral-400 rounded-full mt-1 pl-2 pr-1">
           <TextInput
+            onChangeText={text => setSearchText(text)}
             placeholder="Search"
             placeholderTextColor={"#ddd"}
             className="text-white font-semibold tracking-wider py-2 px-4"
@@ -33,6 +34,12 @@ const Search = () => {
             <Icon name="close" size={24} color="#fff" />
           </TouchableOpacity>
         </View>
+        {/* <View className="items-center justify-center">
+          <Image
+            source={require("../assets/movieTime.png")}
+            className="w-96 h-96"
+          />
+        </View> */}
       </SafeAreaView>
     </View>
   );

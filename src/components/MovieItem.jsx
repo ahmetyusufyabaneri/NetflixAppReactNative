@@ -11,7 +11,9 @@ const MovieItem = ({movie}) => {
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate(screenNames.Movie, {id: movie.id})}>
+      onPress={() =>
+        navigation.navigate(screenNames.MovieDetails, {id: movie.id})
+      }>
       <View className="mr-4 space-y-2">
         <Image
           source={{uri: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`}}

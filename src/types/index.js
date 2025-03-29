@@ -1,7 +1,7 @@
 export const screenNames = {
   Home: "Home",
   Favourites: "Favourites",
-  Movie: "Movie",
+  MovieDetails: "MovieDetails",
   Person: "Person",
   Search: "Search",
 };

@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {FlatList, Text, TouchableOpacity, View} from "react-native";
 import MovieItem from "./MovieItem";
 
 const MovieList = ({data, title}) => {
@@ -23,5 +23,3 @@ const MovieList = ({data, title}) => {
 };
 
 export default MovieList;
-
-const styles = StyleSheet.create({});
