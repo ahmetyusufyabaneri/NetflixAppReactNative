@@ -52,7 +52,7 @@ export const getMovieCreditsAction = createAsyncThunk(
   "movie/getMovieCredits",
   async (id, {dispatch}) => {
     const response = await getMovieCredits(id);
-    dispatch(setMovieCredits(response));
+    dispatch(setMovieCredits(response.cast));
   },
 );
 
