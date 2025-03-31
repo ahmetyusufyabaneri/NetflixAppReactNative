@@ -3,8 +3,6 @@ import {Dimensions, Image, Text, TouchableOpacity, View} from "react-native";
 import {screenNames} from "../types";
 
 const MovieItem = ({movie}) => {
-  // console.log(movie);
-
   const navigation = useNavigation();
 
   const {width, height} = Dimensions.get("window");
@@ -12,9 +10,9 @@ const MovieItem = ({movie}) => {
   return (
     <TouchableOpacity
       onPress={() =>
-        navigation.navigate(screenNames.MovieDetails, {id: movie.id})
+        navigation.navigate(screenNames.MovieDetail, {id: movie.id})
       }>
-      <View className="mr-4 space-y-2">
+      <View className="space-y-2">
         <Image
           source={{uri: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`}}
           width={width * 0.33}

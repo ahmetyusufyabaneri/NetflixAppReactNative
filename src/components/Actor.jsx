@@ -1,9 +1,16 @@
+import {useNavigation} from "@react-navigation/native";
 import {View, Text, TouchableOpacity, Image} from "react-native";
+import {screenNames} from "../types";
 
 const Actor = ({actor}) => {
-  console.log("actor:", actor);
+  const navigation = useNavigation();
+
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate(screenNames.ActorDetail, {id: actor.id})
+      }
+      className="items-center gap-y-1">
       <View>
         <Image
           source={{
@@ -12,7 +19,12 @@ const Actor = ({actor}) => {
           className="w-20 h-20 rounded-full"
         />
       </View>
-      <Text className="text-white">{actor?.name}</Text>
+      <View className="items-center gap-y-1">
+        <Text className="text-white text-sm font-semibold">
+          {actor?.original_name}
+        </Text>
+        <Text className="text-gray-300 text-xs">{actor?.character}</Text>
+      </View>
     </TouchableOpacity>
   );
 };

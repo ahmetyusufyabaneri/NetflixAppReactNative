@@ -10,8 +10,10 @@ import {
 import BackAndFavourite from "../components/BackAndFavourite";
 import LinearGradient from "react-native-linear-gradient";
 import MovieCast from "../components/MovieCast";
+import Button from "../components/Button";
+import MovieList from "../components/MovieList";
 
-const Movie = () => {
+const MovieDetail = () => {
   const {id} = useRoute().params;
 
   const dispatch = useDispatch();
@@ -22,7 +24,7 @@ const Movie = () => {
     dispatch(getSimilarMoviesAction(id));
   }, [id]);
 
-  const {movieDetails, movieCredits, movieSimilar} = useSelector(
+  const {movieDetails, movieCredits, similarMovies} = useSelector(
     state => state.movie,
   );
 
@@ -72,14 +74,28 @@ const Movie = () => {
           </View>
         </View>
       </View>
-      <View className="px-2">
+      <View className="px-3">
         <Text className="text-neutral-500 font-semibold">
           {movieDetails?.overview}
         </Text>
+        <View className="flex-row mt-6 justify-center" style={{gap: 12}}>
+          <Button bgColor="#fff" iconName="play" color="#000" text="Play" />
+          <Button
+            bgColor="#4c585b"
+            iconName="add"
+            color="#fff"
+            text="My List"
+          />
+        </View>
         <MovieCast data={movieCredits} />
+        <MovieList
+          data={similarMovies}
+          title={"Similar Movies"}
+          isHidden={true}
+        />
       </View>
     </ScrollView>
   );
 };
 
-export default Movie;
+export default MovieDetail;
