@@ -3,7 +3,7 @@ import MovieItem from "./MovieItem";
 
 const MovieList = ({data, title, isHidden}) => {
   return (
-    <View className="my-4 space-y-6">
+    <View className="my-4 space-y-2">
       <View className="flex-row justify-between mx-4">
         <Text className="text-white text-xl font-semibold">{title}</Text>
         {!isHidden && (

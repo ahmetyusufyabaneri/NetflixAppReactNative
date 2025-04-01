@@ -88,11 +88,7 @@ const MovieDetail = () => {
           />
         </View>
         <MovieCast data={movieCredits} />
-        <MovieList
-          data={similarMovies}
-          title={"Similar Movies"}
-          isHidden={true}
-        />
+        <MovieList data={similarMovies} title={"Similar Movies"} isHidden />
       </View>
     </ScrollView>
   );

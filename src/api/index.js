@@ -13,3 +13,6 @@ export const getMovieCredits = id => requests.get(`/movie/${id}/credits`);
 export const getSimilarMovies = id => requests.get(`/movie/${id}/similar`);
 
 export const getActorDetails = id => requests.get(`/person/${id}`);
+
+export const getActorMovieCredits = id =>
+  requests.get(`/person/${id}/movie_credits`);

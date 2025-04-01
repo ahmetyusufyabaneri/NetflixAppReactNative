@@ -1,4 +1,4 @@
-import {axiosOptions} from "../libraries/axios";
+import {axiosOptions} from "../libs/axios";
 
 const responseBody = res => res.data;
 

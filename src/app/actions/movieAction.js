@@ -1,6 +1,7 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {
   getActorDetails,
+  getActorMovieCredits,
   getMovieCredits,
   getMovieDetails,
   getSimilarMovies,
@@ -10,6 +11,7 @@ import {
 } from "../../api";
 import {
   setActorDetails,
+  setActorMovieCredits,
   setMovieCredits,
   setMovieDetails,
   setSimilarMovies,
@@ -71,5 +73,13 @@ export const getActorDetailsAction = createAsyncThunk(
   async (id, {dispatch}) => {
     const response = await getActorDetails(id);
     dispatch(setActorDetails(response));
+  },
+);
+
+export const getActorMovieCreditsAction = createAsyncThunk(
+  "movie/getActorMovieCredits",
+  async (id, {dispatch}) => {
+    const response = await getActorMovieCredits(id);
+    dispatch(setActorMovieCredits(response.cast));
   },
 );
