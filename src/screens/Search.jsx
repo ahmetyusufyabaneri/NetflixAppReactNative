@@ -1,21 +1,50 @@
-import {Image, SafeAreaView, StyleSheet, View} from "react-native";
+import {
+  Dimensions,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import {themes} from "../themes";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import SearchInput from "../components/SearchInput";
+import {getSearchedMoviesAction} from "../app/actions/movieAction";
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigation} from "@react-navigation/native";
 
 const Search = () => {
-  const [searchText, setSearchText] = useState("");
+  const navigation = useNavigation();
+
+  const [searchedQuery, setSearchedQuery] = useState("");
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getSearchedMoviesAction(searchedQuery));
+  }, [searchedQuery]);
+
+  const {searchedMovies} = useSelector(state => state.movie);
+
+  console.log(searchedMovies);
 
   return (
     <View style={styles.container}>
       <SafeAreaView className="mx-4">
-        <SearchInput setSearchText={setSearchText} />
-        {/* <View className="items-center justify-center">
-          <Image
-            source={require("../assets/movieTime.png")}
-            className="w-96 h-96"
-          />
-        </View> */}
+        <SearchInput setSearchedQuery={setSearchedQuery} />
+        {searchedMovies.length > 0 ? (
+          <ScrollView>
+            <Text>Result Length: 20</Text>
+          </ScrollView>
+        ) : (
+          <View className="items-center justify-center">
+            <Image
+              source={require("../assets/movieTime.png")}
+              className="w-96 h-96"
+            />
+          </View>
+        )}
       </SafeAreaView>
     </View>
   );

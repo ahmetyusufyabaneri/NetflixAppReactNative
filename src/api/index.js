@@ -16,3 +16,6 @@ export const getActorDetails = id => requests.get(`/person/${id}`);
 
 export const getActorMovieCredits = id =>
   requests.get(`/person/${id}/movie_credits`);
+
+export const getSearchedMovies = query =>
+  requests.get(`/search/movie?query=${query}`);

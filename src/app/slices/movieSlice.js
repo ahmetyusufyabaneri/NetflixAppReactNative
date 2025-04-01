@@ -9,6 +9,7 @@ const initialState = {
   similarMovies: {},
   actorDetails: {},
   actorMovieCredits: {},
+  searchedMovies: {},
   isLoading: false,
   isError: false,
 };
@@ -41,6 +42,9 @@ export const movieSlice = createSlice({
     setActorMovieCredits: (state, action) => {
       state.actorMovieCredits = action.payload;
     },
+    setSearchedMovies: (state, action) => {
+      state.searchedMovies = action.payload;
+    },
   },
 });
 
@@ -53,6 +57,7 @@ export const {
   setSimilarMovies,
   setActorDetails,
   setActorMovieCredits,
+  setSearchedMovies,
 } = movieSlice.actions;
 
 export default movieSlice.reducer;

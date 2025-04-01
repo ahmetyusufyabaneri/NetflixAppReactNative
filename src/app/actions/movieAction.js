@@ -4,6 +4,7 @@ import {
   getActorMovieCredits,
   getMovieCredits,
   getMovieDetails,
+  getSearchedMovies,
   getSimilarMovies,
   getTopRatedMovies,
   getTrendingMovies,
@@ -14,6 +15,7 @@ import {
   setActorMovieCredits,
   setMovieCredits,
   setMovieDetails,
+  setSearchedMovies,
   setSimilarMovies,
   setTopRatedMovies,
   setTrendingMovies,
@@ -81,5 +83,13 @@ export const getActorMovieCreditsAction = createAsyncThunk(
   async (id, {dispatch}) => {
     const response = await getActorMovieCredits(id);
     dispatch(setActorMovieCredits(response.cast));
+  },
+);
+
+export const getSearchedMoviesAction = createAsyncThunk(
+  "movie/getSearchedMovies",
+  async (query, {dispatch}) => {
+    const response = await getSearchedMovies(query);
+    dispatch(setSearchedMovies(response.results));
   },
 );

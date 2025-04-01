@@ -14,9 +14,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {
   getTopRatedMoviesAction,
+  getTrendingMoviesAction,
   getUpcomingMoviesAction,
 } from "../app/actions/movieAction";
-import TrendingMovies from "../components/TrendingMovies";
 import MovieList from "../components/MovieList";
 
 const Home = () => {
@@ -25,11 +25,12 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(getTrendingMoviesAction());
     dispatch(getUpcomingMoviesAction());
     dispatch(getTopRatedMoviesAction());
   }, []);
 
-  const {upcoming, topRated} = useSelector(state => state.movie);
+  const {trending, upcoming, topRated} = useSelector(state => state.movie);
 
   return (
     <View style={styles.container}>
@@ -44,10 +45,10 @@ const Home = () => {
             <Icon name="search1" size={28} color={"#fff"} />
           </TouchableOpacity>
         </View>
-        <ScrollView>
-          <TrendingMovies />
-          <MovieList data={upcoming} title={"Upcoming"} />
-          <MovieList data={topRated} title={"Top Rated"} />
+        <ScrollView className="mt-4 mb-16">
+          <MovieList data={trending} title="Trending" />
+          <MovieList data={upcoming} title="Upcoming" />
+          <MovieList data={topRated} title="Top Rated" />
         </ScrollView>
       </SafeAreaView>
     </View>
