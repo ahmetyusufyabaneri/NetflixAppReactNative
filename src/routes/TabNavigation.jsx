@@ -20,7 +20,7 @@ const TabNavigation = () => {
         tabBarInactiveTintColor: themes.tabBar.inActive,
       }}>
       <Tab.Screen
-        name={screenNames.Home}
+        name={screenNames.Tab}
         component={StackNavigation}
         options={{
           tabBarIcon: ({color, size}) => (

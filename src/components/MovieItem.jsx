@@ -2,7 +2,7 @@ import {useNavigation} from "@react-navigation/native";
 import {Dimensions, Image, Text, TouchableOpacity, View} from "react-native";
 import {screenNames} from "../types";
 
-const MovieItem = ({movie}) => {
+const MovieItem = ({movie, searchScreen}) => {
   const navigation = useNavigation();
 
   const {width, height} = Dimensions.get("window");
@@ -12,7 +12,7 @@ const MovieItem = ({movie}) => {
       onPress={() =>
         navigation.navigate(screenNames.MovieDetail, {id: movie.id})
       }>
-      <View className="space-y-2">
+      <View className={`space-y-2 ${searchScreen && ""}`}>
         <Image
           source={{uri: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`}}
           width={width * 0.33}

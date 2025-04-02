@@ -13,6 +13,7 @@ import SearchInput from "../components/SearchInput";
 import {getSearchedMoviesAction} from "../app/actions/movieAction";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigation} from "@react-navigation/native";
+import MovieItem from "../components/MovieItem";
 
 const Search = () => {
   const navigation = useNavigation();
@@ -34,8 +35,19 @@ const Search = () => {
       <SafeAreaView className="mx-4">
         <SearchInput setSearchedQuery={setSearchedQuery} />
         {searchedMovies.length > 0 ? (
-          <ScrollView>
-            <Text>Result Length: 20</Text>
+          <ScrollView
+            contentContainerStyle={{paddingHorizontal: 8, paddingVertical: 12}}
+            showsVerticalScrollIndicator={false}>
+            <Text className="text-white text-sm font-semibold mb-4">
+              Result Length: {searchedMovies?.length}
+            </Text>
+            <View
+              className="flex-row flex-wrap justify-between px-4"
+              style={{rowGap: 32}}>
+              {searchedMovies.map((movie, index) => (
+                <MovieItem key={index} movie={movie} searchScreen />
+              ))}
+            </View>
           </ScrollView>
         ) : (
           <View className="items-center justify-center">

@@ -4,4 +4,5 @@ export const screenNames = {
   MovieDetail: "MovieDetail",
   ActorDetail: "ActorDetail",
   Search: "Search",
+  Tab: "Tab",
 };
