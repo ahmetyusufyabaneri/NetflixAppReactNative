@@ -1,4 +1,4 @@
-import {View, Text, Image, Dimensions} from "react-native";
+import {View, Text, Image} from "react-native";
 import ActorInfo from "./ActorInfo";
 import ActorBiography from "./ActorBiography";
 

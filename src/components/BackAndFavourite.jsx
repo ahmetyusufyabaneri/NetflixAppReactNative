@@ -1,12 +1,28 @@
 import {SafeAreaView, TouchableOpacity} from "react-native";
-import React, {useState} from "react";
 import Icon from "react-native-vector-icons/AntDesign";
 import {useNavigation} from "@react-navigation/native";
+import {useDispatch, useSelector} from "react-redux";
+import {addFavourite, removeFavourite} from "../app/slices/favouriteSlice";
+import {themes} from "../themes";
 
-const BackAndFavourite = ({isAbsolute}) => {
+const BackAndFavourite = ({isAbsolute, movie}) => {
   const navigation = useNavigation();
 
-  const [isFavourite, setFavourite] = useState(false);
+  const dispatch = useDispatch();
+
+  const {favouriteMovies} = useSelector(state => state.favourite);
+
+  const isFavourite = favouriteMovies.some(
+    favourite => favourite.id === movie.id,
+  );
+
+  const handlePress = () => {
+    if (!isFavourite) {
+      dispatch(addFavourite(movie));
+    } else {
+      dispatch(removeFavourite(movie));
+    }
+  };
 
   return (
     <SafeAreaView
@@ -16,10 +32,12 @@ const BackAndFavourite = ({isAbsolute}) => {
       <TouchableOpacity onPress={() => navigation.goBack()} className="p-1">
         <Icon name="left" size={32} color="#fff" />
       </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => setFavourite(!isFavourite)}
-        className="p-1">
-        <Icon name="heart" size={32} color={isFavourite ? "#e50914" : "#fff"} />
+      <TouchableOpacity onPress={() => handlePress()} className="p-1">
+        <Icon
+          name="heart"
+          size={32}
+          color={isFavourite ? themes.red : "#fff"}
+        />
       </TouchableOpacity>
     </SafeAreaView>
   );

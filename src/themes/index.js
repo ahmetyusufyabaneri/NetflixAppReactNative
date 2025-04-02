@@ -5,10 +5,10 @@ export const themes = {
   search: {
     iconContainer: "#404040",
   },
-
   tabBar: {
     background: "#404040",
     active: "#d9d9d9",
     inActive: "#8c8c8c",
   },
+  red: "#e50914",
 };

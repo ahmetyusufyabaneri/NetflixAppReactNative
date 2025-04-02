@@ -32,7 +32,7 @@ const MovieDetail = () => {
 
   return (
     <ScrollView className="flex-1 bg-neutral-900">
-      <BackAndFavourite isAbsolute />
+      <BackAndFavourite movie={movieDetails} isAbsolute />
       <View>
         <View>
           <Image

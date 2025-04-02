@@ -16,8 +16,6 @@ import {useNavigation} from "@react-navigation/native";
 import MovieItem from "../components/MovieItem";
 
 const Search = () => {
-  const navigation = useNavigation();
-
   const [searchedQuery, setSearchedQuery] = useState("");
 
   const dispatch = useDispatch();
@@ -27,8 +25,6 @@ const Search = () => {
   }, [searchedQuery]);
 
   const {searchedMovies} = useSelector(state => state.movie);
-
-  console.log(searchedMovies);
 
   return (
     <View style={styles.container}>

@@ -15,6 +15,7 @@ const TabNavigation = () => {
         tabBarShowLabel: false,
         tabBarStyle: {
           backgroundColor: themes.tabBar.background,
+          paddingTop: 8,
         },
         tabBarActiveTintColor: themes.tabBar.active,
         tabBarInactiveTintColor: themes.tabBar.inActive,
